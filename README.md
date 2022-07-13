@@ -5,17 +5,17 @@ Output: "PDF_Document"
 
 # Todo List:
 ---
-- [ ] **Snowflake Design** (Team)
-- [ ] **Database Tables**
-    - [ ] Customer Data <span style="color: #49BEAA">{CSV}</span> (Joaquin)
-    - [ ] Orders Data <span style="color: #49BEAA">{CSV}</span> (Joaquin)
-    - [ ] Order items Data <span style="color: #49BEAA">{CSV}</span> (Joaquin)
-    - [ ] Stocks Data <span style="color: #49BEAA">{CSV}</span> (Song Ling)
-    - [ ] Products Data <span style="color: #EF767A">{JSON}</span> (Song Ling)
-    - [ ] Stores Data <span style="color: #456990">{txt}</span> (Rachel)
-    - [ ] Staff Data <span style="color: #456990">{txt}</span> (Rachel)
-    - [ ] Brand Data <span style="color: #456990">{txt}</span> (Cody)
-    - [ ] Categories Data <span style="color: #456990">{txt}</span> (Cody)
+- [x] **Snowflake Design** (Team)
+- [x] **Database Tables**
+    - [x] Customer Data <span style="color: #49BEAA">{CSV}</span> 
+    - [x] Orders Data <span style="color: #49BEAA">{CSV}</span> 
+    - [x] Order items Data <span style="color: #49BEAA">{CSV}</span> 
+    - [x] Stocks Data <span style="color: #49BEAA">{CSV}</span> 
+    - [x] Products Data <span style="color: #EF767A">{JSON}</span> 
+    - [x] Stores Data <span style="color: #456990">{txt}</span> 
+    - [x] Staff Data <span style="color: #456990">{txt}</span> 
+    - [x] Brand Data <span style="color: #456990">{txt}</span> 
+    - [x] Categories Data <span style="color: #456990">{txt}</span> 
 
 - [ ] **Data Warehouse**
     - [ ] Customer Table (Joaquin)
