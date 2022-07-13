@@ -5,19 +5,36 @@ GO
 -- ! Delete before Continuing to Data Warehouse
 ALTER TABLE sales.customers NOCHECK CONSTRAINT ALL
 
+BULK INSERT sales.customers
+FROM 'C:\Users\joaqu\GitHub\DENG_CA2\customers.csv'
+WITH (firstrow = 2, fieldterminator=',', rowterminator='\n')
+
 SELECT COUNT(*) FROM sales.customers; -- 1445
+
+
 
 -- Orders Table (Joaquin)
 -- ! Delete before Continuing to Data Warehouse
 ALTER TABLE sales.orders NOCHECK CONSTRAINT ALL
 
+BULK INSERT sales.orders
+FROM 'C:\Users\joaqu\GitHub\DENG_CA2\Orders.csv'
+WITH (firstrow = 2, fieldterminator=',', rowterminator='\n')
+
 SELECT COUNT(*) FROM sales.orders; -- 1615
+
+
 
 -- Order items Table (Joaquin)
 -- ! Delete before Continuing to Data Warehouse
 ALTER TABLE sales.order_items NOCHECK CONSTRAINT ALL
 
+BULK INSERT sales.order_items
+FROM 'C:\Users\joaqu\GitHub\DENG_CA2\OrderItems.csv'
+WITH (firstrow = 2, fieldterminator=',', rowterminator='\n')
+
 SELECT COUNT(*) FROM sales.order_items; -- 4722
+
 
 
 -- Stocks Table (Song Ling)
