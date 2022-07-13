@@ -6,36 +6,31 @@ GO
 ALTER TABLE sales.customers NOCHECK CONSTRAINT ALL
 
 BULK INSERT sales.customers
-FROM 'C:\Users\joaqu\GitHub\DENG_CA2\customers.csv'
+FROM 'C:\DAAA\Y2S1\DENG_CA2\customers.csv'
 WITH (firstrow = 2, fieldterminator=',', rowterminator='\n')
 
 SELECT COUNT(*) FROM sales.customers; -- 1445
-
-
 
 -- Orders Table (Joaquin)
 -- ! Delete before Continuing to Data Warehouse
 ALTER TABLE sales.orders NOCHECK CONSTRAINT ALL
 
+SET DATEFORMAT DMY
 BULK INSERT sales.orders
-FROM 'C:\Users\joaqu\GitHub\DENG_CA2\Orders.csv'
-WITH (firstrow = 2, fieldterminator=',', rowterminator='\n')
+FROM 'C:\DAAA\Y2S1\DENG_CA2\Orders.csv'
+WITH (firstrow = 2, fieldterminator=',', rowterminator='\n'	)
 
 SELECT COUNT(*) FROM sales.orders; -- 1615
-
-
 
 -- Order items Table (Joaquin)
 -- ! Delete before Continuing to Data Warehouse
 ALTER TABLE sales.order_items NOCHECK CONSTRAINT ALL
 
 BULK INSERT sales.order_items
-FROM 'C:\Users\joaqu\GitHub\DENG_CA2\OrderItems.csv'
+FROM 'C:\DAAA\Y2S1\DENG_CA2\OrderItems.csv'
 WITH (firstrow = 2, fieldterminator=',', rowterminator='\n')
 
 SELECT COUNT(*) FROM sales.order_items; -- 4722
-
-
 
 -- Stocks Table (Song Ling)
 -- ! Delete before Continuing to Data Warehouse
@@ -57,15 +52,15 @@ SELECT @Products =
   BulkColumn 
     FROM OPENROWSET(BULK 'C:\DAAA\Y2S1\DENG_CA2\products.json', SINGLE_BLOB) JSON 
 
-INSERT INTO production.products 
-  SELECT COUNT(*) FROM OpenJSON(@Products, '$')  
+INSERT INTO production.products
+  SELECT * FROM OpenJSON(@Products, '$')  
   WITH ( 
   product_id VARCHAR(10) '$.product_id', 
   product_name VARCHAR (255) '$.product_name', 
   brand_id VARCHAR(5) '$.brand_id', 
   category_id VARCHAR(5) '$.category_id', 
   model_year INT '$.model_year', 
-  list_price DECIMAL(10, 2) '$.list_price')
+  list_price DECIMAL(10, 2) '$.list_price');
 
 SELECT COUNT(*) FROM production.products; -- 321
 
@@ -85,7 +80,7 @@ SELECT COUNT(*) FROM sales.staffs; -- 10
 -- ! Delete before Continuing to Data Warehouse
 ALTER TABLE production.brands NOCHECK CONSTRAINT ALL
 BULK INSERT production.brands
-FROM 'C:\DENG_CA2\Brand.txt'
+FROM 'C:\DAAA\Y2S1\DENG_CA2\Brand.txt'
 WITH (fieldterminator='\t', rowterminator='\n')
 
 SELECT COUNT(*) FROM production.brands; -- 9
@@ -94,7 +89,7 @@ SELECT COUNT(*) FROM production.brands; -- 9
 -- ! Delete before Continuing to Data Warehouse
 ALTER TABLE production.categories NOCHECK CONSTRAINT ALL
 BULK INSERT production.categories
-FROM 'C:\DENG_CA2\Category.txt'
+FROM 'C:\DAAA\Y2S1\DENG_CA2\Category.txt'
 WITH (fieldterminator='\t', rowterminator='\n')
 
 SELECT COUNT(*) FROM production.categories; -- 7

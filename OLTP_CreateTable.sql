@@ -62,7 +62,7 @@ CREATE TABLE sales.customers (
   customer_id varchar(10) PRIMARY KEY,  
   first_name VARCHAR (255) NOT NULL,  
   last_name VARCHAR (255) NOT NULL,  
-  phone VARCHAR (25),  
+  phone VARCHAR (25) NULL,  
   email VARCHAR (255) NOT NULL,  
   street VARCHAR (255),  
   city VARCHAR (50),  
@@ -76,7 +76,7 @@ CREATE TABLE sales.orders (
   -- Order status: 1 = Pending; 2 = Processing; 3 = Rejected; 4 = Completed  
   order_date DATE NOT NULL,  
   required_date DATE NOT NULL,  
-  shipped_date DATE,  
+  shipped_date DATE NULL,  
   store_id varchar(5) NOT NULL,  
   staff_id varchar(5) NOT NULL,  
   FOREIGN KEY (customer_id) 
