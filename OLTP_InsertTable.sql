@@ -67,12 +67,18 @@ SELECT COUNT(*) FROM production.products; -- 321
 -- Stores Table (Rachel)
 -- ! Delete before Continuing to Data Warehouse
 ALTER TABLE sales.stores NOCHECK CONSTRAINT ALL
+BULK INSERT sales.stores
+FROM 'C:\Users\hkyra\OneDrive\Desktop\SP\DENG\DENG_CA2\Store.txt'
+WITH (fieldterminator='\t', rowterminator='\n')
 
 SELECT COUNT(*) FROM sales.stores; -- 3
 
 -- Staff Table (Rachel)
 -- ! Delete before Continuing to Data Warehouse
 ALTER TABLE sales.staffs NOCHECK CONSTRAINT ALL
+BULK INSERT sales.staffs
+FROM 'C:\Users\hkyra\OneDrive\Desktop\SP\DENG\DENG_CA2\Staff.txt'
+WITH (fieldterminator='\t', rowterminator='\n')
 
 SELECT COUNT(*) FROM sales.staffs; -- 10
 
