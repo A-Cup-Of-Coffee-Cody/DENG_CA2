@@ -50,7 +50,9 @@ CREATE TABLE customerDim(
 );
 
 CREATE TABLE timeDim(
-	time_no int NOT NULL, -- are we gonna put this as identity since time_no is not present in our OLTP?
+	time_no int NOT NULL, 
+	-- are we gonna put this as identity since time_no is not present in our OLTP? (Joaquin)
+	-- I assume yes (Cody)
 	[Month] int NOT NULL,
 	[quarter] int NOT NULL,
 	[year] int NOT NULL,
@@ -91,10 +93,9 @@ CREATE TABLE factTable(
 	product_id int NOT NULL,
 	time_no int NOT NULL,
 	store_id int NOT NULL,
--- discount, sales and profit, what datatypes do we set?
-	discount int,
-	sales int,
-	profit int,
+	discount float,
+	sales money,
+	profit money,
 	PRIMARY KEY(staff_id, order_id, customer_id, product_id, time_no, store_id),
 	FOREIGN KEY (staff_id) REFERENCES staffDim(staff_id),
 	FOREIGN KEY (order_id) REFERENCES orderDim(order_id),
