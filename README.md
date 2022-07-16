@@ -30,14 +30,14 @@ Output: "PDF_Document"
 
 - [ ] **Extract Transform Load** <span style="color: #EEB868">**[ETL]**</span>
     - [ ] Customer ETL (Joaquin)
-    - [ ] Orders ETL (Joaquin)
-    - [ ] Order items ETL (Joaquin)
-    - [ ] Stocks ETL (Song Ling)
-    - [ ] Products ETL (Song Ling)
-    - [ ] Stores ETL (Rachel)
+    - [ ] Order ETL (Joaquin)
+    - [ ] Fact Table ETL (Joaquin)
+    - [ ] Product ETL (Song Ling)
+    - [ ] Time ETL (Song Ling)
     - [ ] Staff ETL (Rachel)
+    - [ ] Store ETL (Rachel)
     - [ ] Brand ETL (Cody)
-    - [ ] Categories ETL (Cody)
+    - [ ] Category ETL (Cody)
 
 - [ ] **Queries**
     - [ ] Query 1 - Sales/profits/discounts/revenue (Song Ling)
