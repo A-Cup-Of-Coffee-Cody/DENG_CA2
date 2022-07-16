@@ -8,7 +8,9 @@ BULK INSERT sales.stores
 FROM 'C:\Users\hkyra\OneDrive\Desktop\SP\DENG\DENG_CA2\Store.txt'
 WITH (fieldterminator='\t', rowterminator='\n')
 
-SELECT COUNT(*) FROM sales.stores; -- 3
+SELECT COUNT(*)
+FROM sales.stores;
+-- 3
 
 -- Staff Table (Rachel)
 -- ! Delete before Continuing to Data Warehouse
@@ -17,7 +19,9 @@ BULK INSERT sales.staffs
 FROM 'C:\Users\hkyra\OneDrive\Desktop\SP\DENG\DENG_CA2\Staff.txt'
 WITH (fieldterminator='\t', rowterminator='\n')
 
-SELECT COUNT(*) FROM sales.staffs; -- 10
+SELECT COUNT(*)
+FROM sales.staffs;
+-- 10
 
 -- Categories Table (Cody)
 -- ! Delete before Continuing to Data Warehouse
@@ -26,7 +30,9 @@ BULK INSERT production.categories
 FROM 'C:\DAAA\Y2S1\DENG_CA2\Category.txt'
 WITH (fieldterminator='\t', rowterminator='\n')
 
-SELECT COUNT(*) FROM production.categories; -- 7
+SELECT COUNT(*)
+FROM production.categories;
+-- 7
 
 -- Brand Table (Cody)
 -- ! Delete before Continuing to Data Warehouse
@@ -35,20 +41,23 @@ BULK INSERT production.brands
 FROM 'C:\DAAA\Y2S1\DENG_CA2\Brand.txt'
 WITH (fieldterminator='\t', rowterminator='\n')
 
-SELECT COUNT(*) FROM production.brands; -- 9
+SELECT COUNT(*)
+FROM production.brands;
+-- 9
 
 -- Products Table (Song Ling)
 -- ! Delete before Continuing to Data Warehouse
 ALTER TABLE production.products NOCHECK CONSTRAINT ALL
 
-Declare @Products VARCHAR(max) 
+Declare @Products VARCHAR(max)
 
 SELECT @Products =  
-  BulkColumn 
-    FROM OPENROWSET(BULK 'C:\DAAA\Y2S1\DENG_CA2\products.json', SINGLE_BLOB) JSON 
+  BulkColumn
+FROM OPENROWSET(BULK 'C:\DAAA\Y2S1\DENG_CA2\products.json', SINGLE_BLOB) JSON
 
 INSERT INTO production.products
-  SELECT * FROM OpenJSON(@Products, '$')  
+SELECT *
+FROM OpenJSON(@Products, '$')  
   WITH ( 
   product_id VARCHAR(10) '$.product_id', 
   product_name VARCHAR (255) '$.product_name', 
@@ -57,7 +66,9 @@ INSERT INTO production.products
   model_year INT '$.model_year', 
   list_price DECIMAL(10, 2) '$.list_price');
 
-SELECT COUNT(*) FROM production.products; -- 321
+SELECT COUNT(*)
+FROM production.products;
+-- 321
 
 -- Customer Table (Joaquin)
 -- ! Delete before Continuing to Data Warehouse
@@ -67,7 +78,9 @@ BULK INSERT sales.customers
 FROM 'C:\DAAA\Y2S1\DENG_CA2\customers.csv'
 WITH (firstrow = 2, fieldterminator=',', rowterminator='\n')
 
-SELECT COUNT(*) FROM sales.customers; -- 1445
+SELECT COUNT(*)
+FROM sales.customers;
+-- 1445
 
 -- Orders Table (Joaquin)
 -- ! Delete before Continuing to Data Warehouse
@@ -78,7 +91,9 @@ BULK INSERT sales.orders
 FROM 'C:\DAAA\Y2S1\DENG_CA2\Orders.csv'
 WITH (firstrow = 2, fieldterminator=',', rowterminator='\n'	)
 
-SELECT COUNT(*) FROM sales.orders; -- 1615
+SELECT COUNT(*)
+FROM sales.orders;
+-- 1615
 
 -- Order items Table (Joaquin)
 -- ! Delete before Continuing to Data Warehouse
@@ -88,7 +103,9 @@ BULK INSERT sales.order_items
 FROM 'C:\DAAA\Y2S1\DENG_CA2\OrderItems.csv'
 WITH (firstrow = 2, fieldterminator=',', rowterminator='\n')
 
-SELECT COUNT(*) FROM sales.order_items; -- 4722
+SELECT COUNT(*)
+FROM sales.order_items;
+-- 4722
 
 -- Stocks Table (Song Ling)
 -- ! Delete before Continuing to Data Warehouse
@@ -98,4 +115,5 @@ BULK INSERT production.stocks
 FROM 'C:\DAAA\Y2S1\DENG_CA2\Stocks.csv'
 WITH (firstrow = 2, fieldterminator=',', rowterminator='\n')
 
-SELECT COUNT(*) FROM production.stocks; -- 939
+SELECT COUNT(*)
+FROM production.stocks; -- 939
