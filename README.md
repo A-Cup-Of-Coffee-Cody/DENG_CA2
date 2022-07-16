@@ -17,16 +17,16 @@ Output: "PDF_Document"
     - [x] Brand Data <span style="color: #456990">{txt}</span> 
     - [x] Categories Data <span style="color: #456990">{txt}</span> 
 
-- [ ] **Data Warehouse**
-    - [ ] Customer Table (Joaquin)
-    - [ ] Orders Table (Joaquin)
-    - [ ] Order items Table (Joaquin)
+- [X] **Data Warehouse**
+    - [x] Customer Table (Joaquin)
+    - [x] Orders Table (Joaquin)
+    - [x] Order items Table (Joaquin)
     - [x] Stocks Table (Song Ling)
     - [x] Products Table (Song Ling)
-    - [ ] Stores Table (Rachel)
-    - [ ] Staff Table (Rachel)
-    - [ ] Brand Table (Cody)
-    - [ ] Categories Table (Cody)
+    - [x] Stores Table (Rachel)
+    - [x] Staff Table (Rachel)
+    - [x] Brand Table (Cody)
+    - [x] Categories Table (Cody)
 
 - [ ] **Extract Transform Load** <span style="color: #EEB868">**[ETL]**</span>
     - [ ] Customer ETL (Joaquin)
