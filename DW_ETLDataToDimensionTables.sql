@@ -74,6 +74,8 @@ FROM BikeSalesDWGroup4.dbo.storeDim;
 -- ! Delete before submission
 ALTER TABLE BikeSalesDWGroup4.dbo.brandDim NOCHECK CONSTRAINT ALL;
 
+DELETE FROM BikeSalesDWGroup4.dbo.brandDim;
+
 INSERT INTO 
   BikeSalesDWGroup4.dbo.brandDim
   (brand_id, brand_name)
@@ -82,10 +84,9 @@ SELECT
 FROM
   BikeSalesGroup4.production.brands
 
-DELETE FROM BikeSalesDWGroup4.dbo.brandDim;
-
 SELECT COUNT(*) AS 'brandDim'
 FROM BikeSalesDWGroup4.dbo.brandDim;
+-- 9
 
 -- Category ETL (Cody)
 -- ! Delete before submission
@@ -103,6 +104,7 @@ FROM
 
 SELECT COUNT(*) AS 'categoryDim'
 FROM BikeSalesDWGroup4.dbo.categoryDim;
+-- 7
 
 DROP TABLE BikeSalesDWGroup4.dbo.factTable;
 DROP TABLE BikeSalesDWGroup4.dbo.productDim;

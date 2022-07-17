@@ -36,8 +36,8 @@ Output: "PDF_Document"
     - [x] Time ETL (Song Ling)
     - [x] Staff ETL (Rachel)
     - [x] Store ETL (Rachel)
-    - [ ] Brand ETL (Cody)
-    - [ ] Category ETL (Cody)
+    - [x] Brand ETL (Cody)
+    - [x] Category ETL (Cody)
 
 - [ ] **Queries**
     - [ ] Query 1 - Sales/profits/discounts/revenue (Song Ling)
