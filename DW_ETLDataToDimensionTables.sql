@@ -74,8 +74,16 @@ FROM BikeSalesDWGroup4.dbo.storeDim;
 -- ! Delete before submission
 ALTER TABLE BikeSalesDWGroup4.dbo.brandDim NOCHECK CONSTRAINT ALL;
 
+INSERT INTO 
+  BikeSalesDWGroup4.dbo.brandDim
+  (brand_id, brand_name)
+SELECT
+  brand_id, brand_name
+FROM
+  BikeSalesGroup4.production.brands
+
 DELETE FROM BikeSalesDWGroup4.dbo.brandDim;
--- Insert statement here --
+
 SELECT COUNT(*) AS 'brandDim'
 FROM BikeSalesDWGroup4.dbo.brandDim;
 
@@ -84,7 +92,15 @@ FROM BikeSalesDWGroup4.dbo.brandDim;
 ALTER TABLE BikeSalesDWGroup4.dbo.categoryDim NOCHECK CONSTRAINT ALL;
 
 DELETE FROM BikeSalesDWGroup4.dbo.categoryDim;
--- Insert statement here --
+
+INSERT INTO 
+  BikeSalesDWGroup4.dbo.categoryDim
+  (category_id, category_name)
+SELECT
+  category_id, category_name
+FROM
+  BikeSalesGroup4.production.categories
+
 SELECT COUNT(*) AS 'categoryDim'
 FROM BikeSalesDWGroup4.dbo.categoryDim;
 
