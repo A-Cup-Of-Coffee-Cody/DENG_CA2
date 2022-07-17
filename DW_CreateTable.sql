@@ -51,8 +51,6 @@ CREATE TABLE customerDim (
 
 CREATE TABLE timeDim (
   time_id INT NOT NULL,
-  -- are we gonna put this as identity since time_no is not present in our OLTP? (Joaquin)
-  -- I assume yes (Cody)
   [Date] DATETIME,
   [FullDateUSA] CHAR(10),-- Date in MM-dd-yyyy format
   [DayOfMonth] VARCHAR(2),
