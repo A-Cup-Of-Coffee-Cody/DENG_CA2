@@ -48,25 +48,24 @@ Output: "PDF_Document"
 ---
 
 # Timeline:
-[x]
-## [13-07-2022] First DENG Meeting 
 
+## [13-07-2022] First DENG Meeting 
+- [x]
 1. Finalise Snowflake Design (DW)
 2. Timeline
 3. Delegation of work
 
-[x]
-##  [17-07-2022] Database + Data Warehouse
-
+## [17-07-2022] Database + Data Warehouse
+- [x]
 1. Tables all done
 2. Data all populated
 
 ## [24-07-2022] Queries all completed
-
+- [x]
 1. Personal Query done
 2. Team Query done
 
 ## [25-07-2022] Documentation Done
-
+- [x]
 1. Ready for submission
 <!-- Insert Additional Work Below -->
