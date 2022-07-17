@@ -3,18 +3,38 @@
 ALTER TABLE BikeSalesDWGroup4.dbo.customerDim NOCHECK CONSTRAINT ALL;
 
 DELETE FROM BikeSalesDWGroup4.dbo.customerDim;
--- Insert statement here --
+
+INSERT INTO 
+  BikeSalesDWGroup4.dbo.customerDim
+  (customer_id, first_name, last_name, phone, email, street, city, [state], zip_code)
+SELECT
+  c.customer_id, c.first_name, c.last_name, c.phone, c.email, c.street, c.city, c.state, c.zip_code
+FROM
+  BikeSalesGroup4.sales.customers c
+
+
 SELECT COUNT(*) AS 'customerDim'
 FROM BikeSalesDWGroup4.dbo.customerDim;
+
 
 -- Order ETL (Joaquin)
 -- ! Delete before submission
 ALTER TABLE BikeSalesDWGroup4.dbo.orderDim NOCHECK CONSTRAINT ALL;
 
 DELETE FROM BikeSalesDWGroup4.dbo.orderDim;
--- Insert statement here --
+
+INSERT INTO 
+  BikeSalesDWGroup4.dbo.orderDim
+  (order_id, order_status, order_date, required_date, shipped_date)
+SELECT
+  o.order_id, o.order_status, o.order_date, o.required_date, o.shipped_date
+FROM
+  BikeSalesGroup4.sales.orders o
+  
 SELECT COUNT(*) AS 'orderDim'
 FROM BikeSalesDWGroup4.dbo.orderDim;
+
+
 
 -- Product ETL (Song Ling)
 -- ! Delete before submission
@@ -36,6 +56,8 @@ SELECT COUNT(*) AS 'ProductDim'
 FROM BikeSalesDWGroup4.dbo.productDim;
 -- 313
 
+
+
 -- Staff ETL (Rachel)
 -- ! Delete before submission
 ALTER TABLE BikeSalesDWGroup4.dbo.staffDim NOCHECK CONSTRAINT ALL;
@@ -52,6 +74,8 @@ FROM
 
 SELECT COUNT(*) AS 'staffDim'
 FROM BikeSalesDWGroup4.dbo.staffDim;
+
+
 
 -- Store ETL (Rachel)
 -- ! Delete before submission
@@ -70,6 +94,8 @@ FROM
 SELECT COUNT(*) AS 'storeDim'
 FROM BikeSalesDWGroup4.dbo.storeDim;
 
+
+
 -- Brand ETL (Cody)
 -- ! Delete before submission
 ALTER TABLE BikeSalesDWGroup4.dbo.brandDim NOCHECK CONSTRAINT ALL;
@@ -87,6 +113,8 @@ FROM
 SELECT COUNT(*) AS 'brandDim'
 FROM BikeSalesDWGroup4.dbo.brandDim;
 -- 9
+
+
 
 -- Category ETL (Cody)
 -- ! Delete before submission

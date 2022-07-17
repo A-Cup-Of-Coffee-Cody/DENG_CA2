@@ -5,7 +5,7 @@ GO
 DELETE FROM sales.stores;
 
 BULK INSERT sales.stores
-FROM 'C:\DAAA\Y2S1\DENG_CA2\Store.txt'
+FROM 'C:\Users\joaqu\GitHub\DENG_CA2\Store.txt'
 WITH (fieldterminator='\t', rowterminator='\n')
 
 SELECT COUNT(*) AS 'Stores Table'
@@ -16,7 +16,7 @@ FROM sales.stores;
 DELETE FROM sales.staffs;
 
 BULK INSERT sales.staffs
-FROM 'C:\DAAA\Y2S1\DENG_CA2\Staff.txt'
+FROM 'C:\Users\joaqu\GitHub\DENG_CA2\Staff.txt'
 WITH (fieldterminator='\t', rowterminator='\n')
 
 SELECT COUNT(*) AS 'Staff Table'
@@ -27,7 +27,7 @@ FROM sales.staffs;
 DELETE FROM production.categories;
 
 BULK INSERT production.categories
-FROM 'C:\DAAA\Y2S1\DENG_CA2\Category.txt'
+FROM 'C:\Users\joaqu\GitHub\DENG_CA2\Category.txt'
 WITH (fieldterminator='\t', rowterminator='\n')
 
 SELECT COUNT(*) AS 'Categories Table'
@@ -38,7 +38,7 @@ FROM production.categories;
 DELETE FROM production.brands;
 
 BULK INSERT production.brands
-FROM 'C:\DAAA\Y2S1\DENG_CA2\Brand.txt'
+FROM 'C:\Users\joaqu\GitHub\DENG_CA2\Brand.txt'
 WITH (fieldterminator='\t', rowterminator='\n')
 
 SELECT COUNT(*) AS 'Brand Table'
@@ -52,7 +52,7 @@ Declare @Products VARCHAR(max)
 
 SELECT @Products =  
   BulkColumn
-FROM OPENROWSET(BULK 'C:\DAAA\Y2S1\DENG_CA2\products.json', SINGLE_BLOB) JSON
+FROM OPENROWSET(BULK 'C:\Users\joaqu\GitHub\DENG_CA2\products.json', SINGLE_BLOB) JSON
 
 INSERT INTO production.products
 SELECT *
@@ -73,7 +73,7 @@ FROM production.products;
 DELETE FROM sales.customers;
 
 BULK INSERT sales.customers
-FROM 'C:\DAAA\Y2S1\DENG_CA2\customers.csv'
+FROM 'C:\Users\joaqu\GitHub\DENG_CA2\customers.csv'
 WITH (firstrow = 2, fieldterminator=',', rowterminator='\n')
 
 SELECT COUNT(*) AS 'Customer Table'
@@ -85,7 +85,7 @@ DELETE FROM sales.orders;
 
 SET DATEFORMAT DMY
 BULK INSERT sales.orders
-FROM 'C:\DAAA\Y2S1\DENG_CA2\Orders.csv'
+FROM 'C:\Users\joaqu\GitHub\DENG_CA2\Orders.csv'
 WITH (firstrow = 2, fieldterminator=',', rowterminator='\n'	)
 
 SELECT COUNT(*) AS 'Orders Table'
@@ -96,7 +96,7 @@ FROM sales.orders;
 DELETE FROM sales.order_items;
 
 BULK INSERT sales.order_items
-FROM 'C:\DAAA\Y2S1\DENG_CA2\OrderItems.csv'
+FROM 'C:\Users\joaqu\GitHub\DENG_CA2\OrderItems.csv'
 WITH (firstrow = 2, fieldterminator=',', rowterminator='\n')
 
 SELECT COUNT(*) AS 'Order items Table'
@@ -107,7 +107,7 @@ FROM sales.order_items;
 DELETE FROM production.stocks;
 
 BULK INSERT production.stocks
-FROM 'C:\DAAA\Y2S1\DENG_CA2\Stocks.csv'
+FROM 'C:\Users\joaqu\GitHub\DENG_CA2\Stocks.csv'
 WITH (firstrow = 2, fieldterminator=',', rowterminator='\n')
 
 SELECT COUNT(*) AS 'Stocks Table'

@@ -16,9 +16,8 @@ CREATE TABLE staffDim (
 
 CREATE TABLE orderDim (
   order_id VARCHAR(10) NOT NULL,
-  order_status INT NOT NULL,
+  order_status INT NOT NULL,  --  Order status: 1 = Pending; 2 = Processing; 3 = Rejected; 4 = Completed
   order_date DATE NOT NULL,
-  --  Order status: 1 = Pending; 2 = Processing; 3 = Rejected; 4 = Completed
   required_date DATE NOT NULL,
   shipped_date DATE,
   PRIMARY KEY(order_id)
@@ -40,7 +39,7 @@ CREATE TABLE customerDim (
   customer_id VARCHAR(10) NOT NULL,
   first_name VARCHAR(255) NOT NULL,
   last_name VARCHAR(255) NOT NULL,
-  phone VARCHAR(25) NOT NULL,
+  phone VARCHAR(25),
   email VARCHAR(255) NOT NULL,
   street VARCHAR(255) NOT NULL,
   city VARCHAR(50) NOT NULL,
