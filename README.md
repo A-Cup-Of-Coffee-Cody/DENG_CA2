@@ -61,11 +61,11 @@ Output: "PDF_Document"
 2. Data all populated
 
 ## [24-07-2022] Queries all completed
-- [x] Status
+- [ ] Status
 1. Personal Query done
 2. Team Query done
 
 ## [25-07-2022] Documentation Done
-- [x] Status
+- [ ] Status
 1. Ready for submission
 <!-- Insert Additional Work Below -->
