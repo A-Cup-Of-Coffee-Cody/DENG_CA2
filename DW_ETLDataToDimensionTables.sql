@@ -41,7 +41,15 @@ FROM BikeSalesDWGroup4.dbo.productDim;
 ALTER TABLE BikeSalesDWGroup4.dbo.staffDim NOCHECK CONSTRAINT ALL;
 
 DELETE FROM BikeSalesDWGroup4.dbo.staffDim;
--- Insert statement here --
+
+INSERT INTO 
+  BikeSalesDWGroup4.dbo.staffDim
+  (staff_id, first_name, last_name, email, phone, active, manager_id)
+SELECT
+  staff_id, first_name, last_name, email, phone, active, manager_id
+FROM
+  BikeSalesGroup4.sales.staffs
+
 SELECT COUNT(*) AS 'staffDim'
 FROM BikeSalesDWGroup4.dbo.staffDim;
 
@@ -50,7 +58,15 @@ FROM BikeSalesDWGroup4.dbo.staffDim;
 ALTER TABLE BikeSalesDWGroup4.dbo.storeDim NOCHECK CONSTRAINT ALL;
 
 DELETE FROM BikeSalesDWGroup4.dbo.storeDim;
--- Insert statement here --
+
+INSERT INTO 
+  BikeSalesDWGroup4.dbo.storeDim
+  (store_id, store_name, phone, email, street, city, state, zip_code)
+SELECT
+  store_id, store_name, phone, email, street, city, state, zip_code
+FROM
+  BikeSalesGroup4.sales.stores
+
 SELECT COUNT(*) AS 'storeDim'
 FROM BikeSalesDWGroup4.dbo.storeDim;
 

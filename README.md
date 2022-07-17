@@ -34,8 +34,8 @@ Output: "PDF_Document"
     - [ ] Fact Table ETL (Joaquin)
     - [x] Product ETL (Song Ling)
     - [x] Time ETL (Song Ling)
-    - [ ] Staff ETL (Rachel)
-    - [ ] Store ETL (Rachel)
+    - [x] Staff ETL (Rachel)
+    - [x] Store ETL (Rachel)
     - [ ] Brand ETL (Cody)
     - [ ] Category ETL (Cody)
 
