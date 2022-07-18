@@ -28,10 +28,10 @@ Output: "PDF_Document"
     - [x] Brand Table (Cody)
     - [x] Categories Table (Cody)
 
-- [ ] **Extract Transform Load** <span style="color: #EEB868">**[ETL]**</span>
+- [x] **Extract Transform Load** <span style="color: #EEB868">**[ETL]**</span>
     - [x] Customer ETL (Joaquin)
     - [x] Order ETL (Joaquin)
-    - [ ] Fact Table ETL (Joaquin)
+    - [x] Fact Table ETL (Joaquin)
     - [x] Product ETL (Song Ling)
     - [x] Time ETL (Song Ling)
     - [x] Staff ETL (Rachel)
