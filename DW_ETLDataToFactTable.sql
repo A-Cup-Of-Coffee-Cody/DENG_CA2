@@ -1,4 +1,4 @@
--- Fact Table ETL (Joaquin)
+-- Fact Table ETL 
 USE BikeSalesDWGroup4
 
 INSERT INTO BikeSalesDWGroup4.dbo.factTable
@@ -13,13 +13,13 @@ SELECT
  st.store_id,
  oi.discount,
  (p.list_price * p.stock),
- (p.list_price * p.stock)
+ (p.list_price * p.stock)	--To update profit
 
 FROM 
 BikeSalesGroup4.sales.[order_items] oi 
 INNER JOIN BikeSalesGroup4.production.[products] pr ON oi.product_id = pr.product_id
 INNER JOIN BikeSalesGroup4.sales.[orders] ord ON ord.order_id = oi.order_id
-INNER JOIN BikeSalesDWGroup4.dbo.[staffDim] s ON ord.staff_id = s.staff
+INNER JOIN BikeSalesDWGroup4.dbo.[staffDim] s ON ord.staff_id = s.staff_id
 INNER JOIN BikeSalesDWGroup4.dbo.[orderDim] o ON oi.order_id = o.order_id
 INNER JOIN BikeSalesDWGroup4.dbo.[customerDim] c ON ord.customer_id = c.customer_id
 INNER JOIN BikeSalesDWGroup4.dbo.[productDim] p  ON pr.product_id = p.product_id

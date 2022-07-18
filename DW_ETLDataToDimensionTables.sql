@@ -134,12 +134,12 @@ SELECT COUNT(*) AS 'categoryDim'
 FROM BikeSalesDWGroup4.dbo.categoryDim;
 -- 7
 
-DROP TABLE BikeSalesDWGroup4.dbo.factTable;
-DROP TABLE BikeSalesDWGroup4.dbo.productDim;
-DROP TABLE BikeSalesDWGroup4.dbo.customerDim;
-DROP TABLE BikeSalesDWGroup4.dbo.orderDim;
-DROP TABLE BikeSalesDWGroup4.dbo.staffDim;
-DROP TABLE BikeSalesDWGroup4.dbo.storeDim;
-DROP TABLE BikeSalesDWGroup4.dbo.brandDim;
-DROP TABLE BikeSalesDWGroup4.dbo.categoryDim;
-DROP TABLE BikeSalesDWGroup4.dbo.timeDim;
+--DROP TABLE BikeSalesDWGroup4.dbo.factTable;
+--DROP TABLE BikeSalesDWGroup4.dbo.productDim;
+--DROP TABLE BikeSalesDWGroup4.dbo.customerDim;
+--DROP TABLE BikeSalesDWGroup4.dbo.orderDim;
+--DROP TABLE BikeSalesDWGroup4.dbo.staffDim;
+--DROP TABLE BikeSalesDWGroup4.dbo.storeDim;
+--DROP TABLE BikeSalesDWGroup4.dbo.brandDim;
+--DROP TABLE BikeSalesDWGroup4.dbo.categoryDim;
+--DROP TABLE BikeSalesDWGroup4.dbo.timeDim;
