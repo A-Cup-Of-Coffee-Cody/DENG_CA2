@@ -41,10 +41,53 @@ Output: "PDF_Document"
 
 - [ ] **Queries**
     - [ ] Query 1 - Sales/profits/discounts/revenue (Song Ling)
+        - Find for:
+            - sales
+            - qty
+        - Group by:
+            - items
+            - discounts
+        - Order by:
+            - Best to worst total sales generated
+        - Insight:
+            - Best promotion
+
     - [ ] Query 2 - Sales/Staff/stores (Joaquin)
+        - Find for:
+            - staff that makes most money
+        - Order by:
+            - sales
+        - Insight:
+            - Best Staff / Store
+
     - [ ] Query 3 - Sales/Seasons of Sales/time (Rachel)
+        - Find for:
+            - Seasons of Sales (Weekly)
+        - Order by:
+            - Sales
+        - Insight:
+            - Which month does the best?
+
     - [ ] Query 4 - Sales/Orders/Customers (Cody)
-    - [ ] Query 5 - Sales/Products/brands/categories/inventory (Team)
+        - Find for:
+            - customer sales
+            - qty of orders
+        - Order by:
+            - state
+            - city
+        - Insight:
+            - Which state/city is doing well?
+                - Open new store
+
+    - [ ] Query 5 - Sales/Products/brands/categories/inventory/(Time?) (Team)
+        - Find for:
+            - Categories
+            - Brands
+            - Products
+        - Order by:
+            - sales / tc (show inventory)
+        - Insight:
+            - Amt we sell vs amt we have
 ---
 
 # Timeline:
