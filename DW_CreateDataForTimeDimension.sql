@@ -2,7 +2,7 @@ USE [BikeSalesDWGroup4];
 
 DECLARE @StartDate DATETIME = '20160101'
 --Starting value of Date Range
-DECLARE @EndDate DATETIME = '20180403' -- Lastest Date in OrderItems.csv
+DECLARE @EndDate DATETIME = '20180403' -- Lastest Date in Orders.csv
 --End Value of Date Range
 
 DECLARE @curDate DATE
