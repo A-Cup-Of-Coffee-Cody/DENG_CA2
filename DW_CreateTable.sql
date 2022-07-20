@@ -119,6 +119,7 @@ CREATE TABLE factTable (
   time_id INT NOT NULL,
   store_id VARCHAR(5) NOT NULL,
   discount FLOAT,
+  quantity int,
   sales MONEY,
   profit MONEY,
   PRIMARY KEY(staff_id, order_id, customer_id, product_id, time_id, store_id),
