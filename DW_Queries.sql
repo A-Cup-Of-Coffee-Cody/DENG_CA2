@@ -1,3 +1,6 @@
+USE BikeSalesDWGroup4;
+GO
+
 -- Sales/profits/discounts/revenue (Song Ling)
   -- - Find for:
   --     - sales

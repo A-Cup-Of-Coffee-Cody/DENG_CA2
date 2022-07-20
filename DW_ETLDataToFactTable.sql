@@ -13,8 +13,8 @@ SELECT
  st.store_id,
  oi.discount,
  oi.quantity,
- (p.list_price * p.stock),
- (p.list_price * p.stock)	--To update profit
+ (p.list_price * oi.quantity),
+ (p.list_price * oi.quantity)	--To update profit
 
 FROM 
 BikeSalesGroup4.sales.[order_items] oi 
