@@ -9,7 +9,7 @@ SELECT
  o.order_id,
  c.customer_id,
  p.product_id, 
- replace(CONVERT(DATE,ord.order_date, 112),'-',''),
+ t.time_id,
  st.store_id,
  oi.discount,
  oi.quantity,
@@ -26,3 +26,4 @@ INNER JOIN BikeSalesDWGroup4.dbo.[orderDim] o ON oi.order_id = o.order_id
 INNER JOIN BikeSalesDWGroup4.dbo.[customerDim] c ON ord.customer_id = c.customer_id
 INNER JOIN BikeSalesDWGroup4.dbo.[productDim] p  ON pr.product_id = p.product_id
 INNER JOIN BikeSalesDWGroup4.dbo.[storeDim] st  ON ord.store_id = st.store_id
+INNER JOIN BikeSalesDWGroup4.dbo.[timeDim] t ON CONVERT(char(8),ord.order_date, 112) = t.time_id

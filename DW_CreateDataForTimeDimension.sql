@@ -1,5 +1,7 @@
 USE [BikeSalesDWGroup4];
 
+DELETE FROM timeDim;
+
 DECLARE @StartDate DATETIME = '20160101'
 --Starting value of Date Range
 DECLARE @EndDate DATETIME = '20180403' -- Lastest Date in Orders.csv
@@ -79,5 +81,6 @@ while @curDate < @EndDate
   SET @curDate = DateAdd(Day, 1, @curDate)
 End
 
-SELECT COUNT(*)
+SELECT COUNT(*) AS 'timeDim'
 FROM timeDim;
+-- 823

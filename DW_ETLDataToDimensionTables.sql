@@ -1,9 +1,53 @@
--- Customer ETL (Joaquin)
--- ! Delete before submission
-ALTER TABLE BikeSalesDWGroup4.dbo.customerDim NOCHECK CONSTRAINT ALL;
-
+DELETE FROM BikeSalesDWGroup4.dbo.factTable;
+DELETE FROM BikeSalesDWGroup4.dbo.timeDim;
+DELETE FROM BikeSalesDWGroup4.dbo.productDim;
+DELETE FROM BikeSalesDWGroup4.dbo.brandDim;
+DELETE FROM BikeSalesDWGroup4.dbo.categoryDim;
 DELETE FROM BikeSalesDWGroup4.dbo.customerDim;
+DELETE FROM BikeSalesDWGroup4.dbo.storeDim;
+DELETE FROM BikeSalesDWGroup4.dbo.orderDim;
+DELETE FROM BikeSalesDWGroup4.dbo.staffDim;
 
+-- Staff ETL
+INSERT INTO 
+  BikeSalesDWGroup4.dbo.staffDim
+  (staff_id, first_name, last_name, email, phone, active, manager_id)
+SELECT
+  staff_id, first_name, last_name, email, phone, active, manager_id
+FROM
+  BikeSalesGroup4.sales.staffs
+
+SELECT COUNT(*) AS 'staffDim'
+FROM BikeSalesDWGroup4.dbo.staffDim;
+--10
+
+-- Order ETL
+INSERT INTO 
+  BikeSalesDWGroup4.dbo.orderDim
+  (order_id, order_status, order_date, required_date, shipped_date)
+SELECT
+  o.order_id, o.order_status, o.order_date, o.required_date, o.shipped_date
+FROM
+  BikeSalesGroup4.sales.orders o
+  
+SELECT COUNT(*) AS 'orderDim'
+FROM BikeSalesDWGroup4.dbo.orderDim;
+-- 1615
+
+-- Store ETL
+INSERT INTO 
+  BikeSalesDWGroup4.dbo.storeDim
+  (store_id, store_name, phone, email, street, city, state, zip_code)
+SELECT
+  store_id, store_name, phone, email, street, city, state, zip_code
+FROM
+  BikeSalesGroup4.sales.stores
+
+SELECT COUNT(*) AS 'storeDim'
+FROM BikeSalesDWGroup4.dbo.storeDim;
+-- 3
+
+-- Customer ETL
 INSERT INTO 
   BikeSalesDWGroup4.dbo.customerDim
   (customer_id, first_name, last_name, phone, email, street, city, [state], zip_code)
@@ -15,93 +59,22 @@ FROM
 
 SELECT COUNT(*) AS 'customerDim'
 FROM BikeSalesDWGroup4.dbo.customerDim;
+-- 1445
 
-
--- Order ETL (Joaquin)
--- ! Delete before submission
-ALTER TABLE BikeSalesDWGroup4.dbo.orderDim NOCHECK CONSTRAINT ALL;
-
-DELETE FROM BikeSalesDWGroup4.dbo.orderDim;
-
+-- Category ETL
 INSERT INTO 
-  BikeSalesDWGroup4.dbo.orderDim
-  (order_id, order_status, order_date, required_date, shipped_date)
+  BikeSalesDWGroup4.dbo.categoryDim
+  (category_id, category_name)
 SELECT
-  o.order_id, o.order_status, o.order_date, o.required_date, o.shipped_date
+  category_id, category_name
 FROM
-  BikeSalesGroup4.sales.orders o
-  
-SELECT COUNT(*) AS 'orderDim'
-FROM BikeSalesDWGroup4.dbo.orderDim;
+  BikeSalesGroup4.production.categories
 
+SELECT COUNT(*) AS 'categoryDim'
+FROM BikeSalesDWGroup4.dbo.categoryDim;
+-- 7
 
-
--- Product ETL (Song Ling)
--- ! Delete before submission
-ALTER TABLE BikeSalesDWGroup4.dbo.productDim NOCHECK CONSTRAINT ALL;
-
-DELETE FROM BikeSalesDWGroup4.dbo.productDim;
-
-INSERT INTO 
-  BikeSalesDWGroup4.dbo.productDim
-  (product_id, stock, brand_id, category_id, product_name, model_year, list_price)
-SELECT
-  p.product_id, SUM(s.quantity), p.brand_id, p.category_id, p.product_name, p.model_year, p.list_price
-FROM
-  BikeSalesGroup4.production.products p, BikeSalesGroup4.production.stocks s
-WHERE p.product_id = s.product_id
-GROUP BY p.product_id, p.brand_id, p.category_id, p.product_name, p.model_year, p.list_price;
-
-SELECT COUNT(*) AS 'ProductDim'
-FROM BikeSalesDWGroup4.dbo.productDim;
--- 313
-
-
-
--- Staff ETL (Rachel)
--- ! Delete before submission
-ALTER TABLE BikeSalesDWGroup4.dbo.staffDim NOCHECK CONSTRAINT ALL;
-
-DELETE FROM BikeSalesDWGroup4.dbo.staffDim;
-
-INSERT INTO 
-  BikeSalesDWGroup4.dbo.staffDim
-  (staff_id, first_name, last_name, email, phone, active, manager_id)
-SELECT
-  staff_id, first_name, last_name, email, phone, active, manager_id
-FROM
-  BikeSalesGroup4.sales.staffs
-
-SELECT COUNT(*) AS 'staffDim'
-FROM BikeSalesDWGroup4.dbo.staffDim;
-
-
-
--- Store ETL (Rachel)
--- ! Delete before submission
-ALTER TABLE BikeSalesDWGroup4.dbo.storeDim NOCHECK CONSTRAINT ALL;
-
-DELETE FROM BikeSalesDWGroup4.dbo.storeDim;
-
-INSERT INTO 
-  BikeSalesDWGroup4.dbo.storeDim
-  (store_id, store_name, phone, email, street, city, state, zip_code)
-SELECT
-  store_id, store_name, phone, email, street, city, state, zip_code
-FROM
-  BikeSalesGroup4.sales.stores
-
-SELECT COUNT(*) AS 'storeDim'
-FROM BikeSalesDWGroup4.dbo.storeDim;
-
-
-
--- Brand ETL (Cody)
--- ! Delete before submission
-ALTER TABLE BikeSalesDWGroup4.dbo.brandDim NOCHECK CONSTRAINT ALL;
-
-DELETE FROM BikeSalesDWGroup4.dbo.brandDim;
-
+-- Brand ETL
 INSERT INTO 
   BikeSalesDWGroup4.dbo.brandDim
   (brand_id, brand_name)
@@ -114,25 +87,29 @@ SELECT COUNT(*) AS 'brandDim'
 FROM BikeSalesDWGroup4.dbo.brandDim;
 -- 9
 
-
-
--- Category ETL (Cody)
--- ! Delete before submission
-ALTER TABLE BikeSalesDWGroup4.dbo.categoryDim NOCHECK CONSTRAINT ALL;
-
-DELETE FROM BikeSalesDWGroup4.dbo.categoryDim;
+-- Product ETL
+INSERT INTO 
+  BikeSalesDWGroup4.dbo.productDim
+  (product_id, stock, brand_id, category_id, product_name, model_year, list_price)
+SELECT
+  p.product_id, SUM(s.quantity), p.brand_id, p.category_id, p.product_name, p.model_year, p.list_price
+FROM
+  BikeSalesGroup4.production.products p, BikeSalesGroup4.production.stocks s
+WHERE p.product_id = s.product_id
+GROUP BY p.product_id, p.brand_id, p.category_id, p.product_name, p.model_year, p.list_price;
 
 INSERT INTO 
-  BikeSalesDWGroup4.dbo.categoryDim
-  (category_id, category_name)
+  BikeSalesDWGroup4.dbo.productDim
+  (product_id, stock, brand_id, category_id, product_name, model_year, list_price)
 SELECT
-  category_id, category_name
+  product_id, 0 AS stock, brand_id, category_id, product_name, model_year, list_price
 FROM
-  BikeSalesGroup4.production.categories
+  BikeSalesGroup4.production.products
+WHERE product_id NOT IN (SELECT product_id FROM BikeSalesGroup4.production.stocks);
 
-SELECT COUNT(*) AS 'categoryDim'
-FROM BikeSalesDWGroup4.dbo.categoryDim;
--- 7
+SELECT COUNT(*) AS 'productDim'
+FROM BikeSalesDWGroup4.dbo.productDim;
+-- 321
 
 --DROP TABLE BikeSalesDWGroup4.dbo.factTable;
 --DROP TABLE BikeSalesDWGroup4.dbo.productDim;
