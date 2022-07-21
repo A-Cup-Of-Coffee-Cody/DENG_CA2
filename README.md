@@ -40,7 +40,7 @@ Output: "PDF_Document"
     - [x] Category ETL (Cody)
 
 - [ ] **Queries**
-    - [ ] Query 1 - Sales/profits/discounts/revenue (Song Ling)
+    - [x] Query 1 - Sales/profits/discounts/revenue (Song Ling)
         - Find for:
             - sales
             - qty

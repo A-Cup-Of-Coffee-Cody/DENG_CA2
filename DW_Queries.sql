@@ -11,9 +11,11 @@ GO
   -- - Order by:
   --     - Best to worst total sales generated
 
--- SELECT SUM(f.sales) AS sales, SUM(f.quantity) as qty, f.discount as discount
--- FROM factTable f
--- GROUP BY f.product_id, f.discount
+SELECT f.product_id, p.product_name AS 'Product Name', ROUND(SUM(f.sales), 2) AS 'Total Sales', ROUND(SUM(f.profit), 2) AS 'Total Profit', SUM(f.quantity) as Quantity, CONCAT(CAST(AVG(f.discount)*100 AS INT),'%') as 'Average Discount'
+FROM factTable f, productDim p
+WHERE f.product_id = p.product_id
+GROUP BY f.product_id, p.product_name
+ORDER BY [Total Profit] DESC;
 
 -- Sales/Staff/stores (Joaquin)
   -- - Find for:
