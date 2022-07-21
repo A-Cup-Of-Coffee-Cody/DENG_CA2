@@ -4,7 +4,7 @@ DELETE FROM timeDim;
 
 DECLARE @StartDate DATETIME = '20160101'
 --Starting value of Date Range
-DECLARE @EndDate DATETIME = '20180403' -- Lastest Date in Orders.csv
+DECLARE @EndDate DATETIME = '20181231' -- Lastest Date in Orders.csv
 --End Value of Date Range
 
 DECLARE @curDate DATE
@@ -83,4 +83,4 @@ End
 
 SELECT COUNT(*) AS 'timeDim'
 FROM timeDim;
--- 823
+-- 1092
