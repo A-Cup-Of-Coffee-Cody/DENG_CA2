@@ -122,6 +122,7 @@ CREATE TABLE factTable (
   quantity int,
   sales MONEY,
   profit MONEY,
+  cost_price MONEY,
   PRIMARY KEY(staff_id, order_id, customer_id, product_id, time_id, store_id),
   FOREIGN KEY (staff_id) REFERENCES staffDim(staff_id),
   FOREIGN KEY (order_id) REFERENCES orderDim(order_id),

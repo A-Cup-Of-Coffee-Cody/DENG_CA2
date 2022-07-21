@@ -17,8 +17,16 @@ GO
   --     - staff that makes most money
   -- - Order by:
   --     - sales
+select * from factTable
+select * from staffDim
 
+SELECT (s.first_name + ' '+ s.last_name) 'Staff Name', SUM(f.sales * f.discount) 'Total Sales'
+FROM factTable f, staffDim s
+WHERE f.staff_id = s.staff_id
+GROUP BY s.first_name + ' '+ s.last_name
 
+select count(staff_id)
+from factTable
 -- Sales/Seasons of Sales/time (Rachel)
   -- - Find for:
   --     - Seasons of Sales (Weekly)

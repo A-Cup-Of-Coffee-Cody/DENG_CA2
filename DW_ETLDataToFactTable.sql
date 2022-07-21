@@ -2,7 +2,7 @@
 USE BikeSalesDWGroup4
 
 INSERT INTO BikeSalesDWGroup4.dbo.factTable
-(staff_id, order_id, customer_id, product_id, time_id, store_id, discount, quantity, sales, profit)
+(staff_id, order_id, customer_id, product_id, time_id, store_id, discount, quantity, sales, profit, cost_price)
     
 SELECT
  s.staff_id,
@@ -14,7 +14,8 @@ SELECT
  oi.discount,
  oi.quantity,
  (p.list_price * oi.quantity),
- (p.list_price * oi.quantity)	--To update profit
+ (p.list_price * oi.quantity * 0.8),
+ (p.list_price * oi.quantity * 0.2)
 
 FROM 
 BikeSalesGroup4.sales.[order_items] oi 
