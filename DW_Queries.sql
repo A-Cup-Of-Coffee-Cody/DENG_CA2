@@ -11,7 +11,7 @@ GO
   -- - Order by:
   --     - Best to worst total sales generated
 
--- SELECT SUM(f.sales) AS sales, SUM(f.qty) as qty, f.discount as discount
+-- SELECT SUM(f.sales) AS sales, SUM(f.quantity) as qty, f.discount as discount
 -- FROM factTable f
 -- GROUP BY f.product_id, f.discount
 
