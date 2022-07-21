@@ -13,10 +13,10 @@ SELECT
  st.store_id,
  oi.discount,
  oi.quantity,
- (p.list_price * oi.quantity),
- (p.list_price * oi.quantity * 0.8),
- (p.list_price * oi.quantity * 0.2)
-
+ (oi.list_price * oi.quantity),
+ (oi.list_price * oi.quantity * 0.8),
+ (oi.list_price * oi.quantity * 0.2)
+ 
 FROM 
 BikeSalesGroup4.sales.[order_items] oi 
 INNER JOIN BikeSalesGroup4.production.[products] pr ON oi.product_id = pr.product_id

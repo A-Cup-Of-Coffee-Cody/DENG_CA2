@@ -23,15 +23,17 @@ GO
 select * from factTable
 select * from staffDim
 
-SELECT (s.first_name + ' '+ s.last_name) 'Staff Name', SUM(f.sales * f.discount) 'Total Sales'
+SELECT (s.first_name + ' '+ s.last_name + ' (' + f.store_id + ')') 'Staff Name', SUM(f.sales * f.discount) 'Total Sales'
 FROM factTable f, staffDim s
 WHERE f.staff_id = s.staff_id
-GROUP BY s.first_name + ' '+ s.last_name
+GROUP BY (s.first_name + ' '+ s.last_name + ' (' + f.store_id + ')')
+ORDER BY [Total Sales] DESC
 
-select count(staff_id)
+select distinct (staff_id)
 from factTable
+
 -- Sales/Seasons of Sales/time (Rachel)
-  -- - Find for:
+  -- - Find for:s
   --     - Seasons of Sales (Weekly)
   -- - Order by:
   --     - Sales
