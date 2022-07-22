@@ -52,7 +52,7 @@ Output: "PDF_Document"
         - Insight:
             - Best promotion
 
-    - [ ] Query 2 - Sales/Staff/stores (Joaquin)
+    - [x] Query 2 - Sales/Staff/stores (Joaquin)
         - Find for:
             - staff that makes most money
         - Order by:
@@ -60,7 +60,7 @@ Output: "PDF_Document"
         - Insight:
             - Best Staff / Store
 
-    - [ ] Query 3 - Sales/Seasons of Sales/time (Rachel)
+    - [x] Query 3 - Sales/Seasons of Sales/time (Rachel)
         - Find for:
             - Seasons of Sales (Weekly)
         - Order by:
