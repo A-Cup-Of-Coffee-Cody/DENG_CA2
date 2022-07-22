@@ -31,11 +31,16 @@ ORDER BY [Total Sales] DESC
 -- From here I can infer there are only 6 active staffs out of the 9, out of thesee 6 staffs, ST2 staffs have the most sales, followed by ST1 and finally ST3.
 
 -- Sales/Seasons of Sales/time (Rachel)
-  -- - Find for:s
+  -- - Find for:
   --     - Seasons of Sales (Weekly)
   -- - Order by:
   --     - Sales
 
+SELECT SUM(f.sales) AS 'Total Sales',t.Year, t.WeekOfYear AS 'Week Of Year'
+FROM factTable f, timeDim t
+WHERE f.time_id = t.time_id
+GROUP BY t.Year, t.WeekOfYear
+ORDER BY t.Year, CAST(t.WeekOfYear AS INT)
 
 -- Sales/Orders/Customers (Cody)
   -- - Find for:
