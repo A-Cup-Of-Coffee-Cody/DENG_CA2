@@ -22,17 +22,13 @@ ORDER BY [Total Profit] DESC;
   --     - staff that makes most money
   -- - Order by:
   --     - sales
-select * from factTable
-select * from staffDim
 
-SELECT (s.first_name + ' '+ s.last_name + ' (' + f.store_id + ')') 'Staff Name', SUM(f.sales * f.discount) 'Total Sales'
+SELECT (s.first_name + ' '+ s.last_name) 'Staff Name', SUM(f.sales * f.discount) 'Total Sales', f.store_id 'Store Code'
 FROM factTable f, staffDim s
 WHERE f.staff_id = s.staff_id
-GROUP BY (s.first_name + ' '+ s.last_name + ' (' + f.store_id + ')')
+GROUP BY (s.first_name + ' '+ s.last_name), f.store_id
 ORDER BY [Total Sales] DESC
-
-select distinct (staff_id)
-from factTable
+-- From here I can infer there are only 6 active staffs out of the 9, out of thesee 6 staffs, ST2 staffs have the most sales, followed by ST1 and finally ST3.
 
 -- Sales/Seasons of Sales/time (Rachel)
   -- - Find for:s
