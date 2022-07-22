@@ -105,7 +105,7 @@ SELECT
   product_id, 0 AS stock, brand_id, category_id, product_name, model_year, list_price
 FROM
   BikeSalesGroup4.production.products
-WHERE product_id NOT IN (SELECT product_id FROM BikeSalesGroup4.production.stocks);
+WHERE product_id NOT IN (SELECT DISTINCT product_id FROM BikeSalesGroup4.production.stocks);
 
 SELECT COUNT(*) AS 'productDim'
 FROM BikeSalesDWGroup4.dbo.productDim;

@@ -58,3 +58,17 @@ ORDER BY t.Year, CAST(t.WeekOfYear AS INT)
   --     - Products
   -- - Order by:
   --     - sales / tc (show inventory)
+
+-- compares quantity sold over stock available
+SELECT c.category_name AS 'Category Name', b.brand_name AS 'Brand Name', p.product_name AS 'Product Name', SUM(f.quantity) as 'Quantity Sold', p.stock AS Stock
+FROM factTable f, categoryDim c, brandDim b, productDim p
+WHERE f.product_id = p.product_id AND p.category_id = c.category_id AND p.brand_id = b.brand_id
+GROUP BY c.category_name, b.brand_name, p.product_name, p.stock
+ORDER BY [Quantity Sold] ASC, [Stock] DESC
+
+-- compares sales over quantity sold and stock available
+SELECT c.category_name AS 'Category Name', b.brand_name AS 'Brand Name', p.product_name AS 'Product Name', SUM(f.quantity) as 'Quantity Sold', p.stock AS Stock, ROUND(SUM(f.sales), 2) AS 'Total Sales', ROUND(SUM(f.profit), 2) AS 'Total Profit'
+FROM factTable f, categoryDim c, brandDim b, productDim p
+WHERE f.product_id = p.product_id AND p.category_id = c.category_id AND p.brand_id = b.brand_id
+GROUP BY c.category_name, b.brand_name, p.product_name, p.stock
+ORDER BY [Total Sales] DESC, [Quantity Sold] ASC, [Stock] DESC;
