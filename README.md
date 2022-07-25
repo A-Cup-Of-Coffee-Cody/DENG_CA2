@@ -68,7 +68,7 @@ Output: "PDF_Document"
         - Insight:
             - Which month does the best?
 
-    - [ ] Query 4 - Sales/Orders/Customers (Cody)
+    - [x] Query 4 - Sales/Orders/Customers (Cody)
         - Find for:
             - customer sales
             - qty of orders

@@ -49,7 +49,11 @@ ORDER BY t.Year, CAST(t.WeekOfYear AS INT)
   -- - Order by:
   --     - state
   --     - city
-
+SELECT (c.first_name + ' '+ c.last_name) 'Customer Name', SUM(f.sales * f.discount) 'Total Sales', COUNT(f.order_id) 'Quantity of Items Bought', c.[state] 'State', c.city 'City'
+FROM factTable f, customerDim c
+WHERE f.customer_id = c.customer_id
+GROUP BY (c.first_name + ' '+ c.last_name), c.[state], c.city
+ORDER BY [Total Sales] DESC, c.[state], c.city
 
 -- Sales/Products/brands/categories/inventory/(Time?) (Team)
   -- - Find for:
