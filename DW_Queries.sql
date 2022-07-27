@@ -40,7 +40,7 @@ SELECT SUM(f.sales) AS 'Total Sales',t.Year, t.WeekOfYear AS 'Week Of Year'
 FROM factTable f, timeDim t
 WHERE f.time_id = t.time_id
 GROUP BY t.Year, t.WeekOfYear
-ORDER BY [Total Sales] ,t.Year, CAST(t.WeekOfYear AS INT)
+ORDER BY [Total Sales] DESC
 
 -- Sales/Orders/Customers (Cody)
   -- - Find for:
