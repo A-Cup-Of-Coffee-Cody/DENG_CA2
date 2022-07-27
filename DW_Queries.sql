@@ -23,7 +23,7 @@ ORDER BY [Total Profit] DESC;
   -- - Order by:
   --     - sales
 
-SELECT (s.first_name + ' '+ s.last_name) 'Staff Name', SUM(f.sales * f.discount) 'Total Sales', f.store_id 'Store Code'
+SELECT (s.first_name + ' '+ s.last_name) 'Staff Name', ROUND(SUM(f.sales * f.discount), 2) 'Total Sales', f.store_id 'Store Code'
 FROM factTable f, staffDim s
 WHERE f.staff_id = s.staff_id
 GROUP BY (s.first_name + ' '+ s.last_name), f.store_id
@@ -40,7 +40,7 @@ SELECT SUM(f.sales) AS 'Total Sales',t.Year, t.WeekOfYear AS 'Week Of Year'
 FROM factTable f, timeDim t
 WHERE f.time_id = t.time_id
 GROUP BY t.Year, t.WeekOfYear
-ORDER BY t.Year, CAST(t.WeekOfYear AS INT)
+ORDER BY [Total Sales] ,t.Year, CAST(t.WeekOfYear AS INT)
 
 -- Sales/Orders/Customers (Cody)
   -- - Find for:
@@ -49,7 +49,7 @@ ORDER BY t.Year, CAST(t.WeekOfYear AS INT)
   -- - Order by:
   --     - state
   --     - city
-SELECT (c.first_name + ' '+ c.last_name) 'Customer Name', SUM(f.sales * f.discount) 'Total Sales', COUNT(f.order_id) 'Quantity of Items Bought', c.[state] 'State', c.city 'City'
+SELECT (c.first_name + ' '+ c.last_name) 'Customer Name', ROUND(SUM(f.sales * f.discount), 2) 'Total Sales', COUNT(f.order_id) 'Quantity of Items Bought', c.[state] 'State', c.city 'City'
 FROM factTable f, customerDim c
 WHERE f.customer_id = c.customer_id
 GROUP BY (c.first_name + ' '+ c.last_name), c.[state], c.city
