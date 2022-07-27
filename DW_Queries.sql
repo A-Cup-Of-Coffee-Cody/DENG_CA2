@@ -36,11 +36,16 @@ ORDER BY [Total Sales] DESC
   -- - Order by:
   --     - Sales
 
-SELECT SUM(f.sales) AS 'Total Sales',t.Year, t.WeekOfYear AS 'Week Of Year'
+SELECT SUM(f.sales) AS 'Total Sales',t.Year, t.WeekOfYear AS 'Week Of Year', t.MonthName AS 'Month'
 FROM factTable f, timeDim t
 WHERE f.time_id = t.time_id
+<<<<<<< Updated upstream
 GROUP BY t.Year, t.WeekOfYear
 ORDER BY [Total Sales] ,t.Year, CAST(t.WeekOfYear AS INT)
+=======
+GROUP BY t.Year, t.WeekOfYear, t.MonthName
+ORDER BY [Total Sales] DESC, t.Year, CAST(t.WeekOfYear AS INT)
+>>>>>>> Stashed changes
 
 -- Sales/Orders/Customers (Cody)
   -- - Find for:
@@ -62,13 +67,6 @@ ORDER BY [Total Sales] DESC, c.[state], c.city
   --     - Products
   -- - Order by:
   --     - sales / tc (show inventory)
-
--- compares quantity sold over stock available
-SELECT c.category_name AS 'Category Name', b.brand_name AS 'Brand Name', p.product_name AS 'Product Name', SUM(f.quantity) as 'Quantity Sold', p.stock AS Stock
-FROM factTable f, categoryDim c, brandDim b, productDim p
-WHERE f.product_id = p.product_id AND p.category_id = c.category_id AND p.brand_id = b.brand_id
-GROUP BY c.category_name, b.brand_name, p.product_name, p.stock
-ORDER BY [Quantity Sold] ASC, [Stock] DESC
 
 -- compares sales over quantity sold and stock available
 SELECT c.category_name AS 'Category Name', b.brand_name AS 'Brand Name', p.product_name AS 'Product Name', SUM(f.quantity) as 'Quantity Sold', p.stock AS Stock, ROUND(SUM(f.sales), 2) AS 'Total Sales', ROUND(SUM(f.profit), 2) AS 'Total Profit'
