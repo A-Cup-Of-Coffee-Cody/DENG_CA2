@@ -11,10 +11,10 @@ GO
   -- - Order by:
   --     - Best to worst total sales generated
 
-SELECT f.product_id, p.product_name AS 'Product Name', ROUND(SUM(f.sales), 2) AS 'Total Sales', ROUND(SUM(f.profit), 2) AS 'Total Profit', SUM(f.quantity) as Quantity, CONCAT(CAST(AVG(f.discount)*100 AS INT),'%') as 'Average Discount'
+SELECT f.product_id, p.product_name AS 'Product Name', p.list_price AS 'List Price', ROUND(SUM(f.sales), 2) AS 'Total Sales', ROUND(SUM(f.profit), 2) AS 'Total Profit', SUM(f.quantity) AS 'Quantity Sold', CONCAT(CAST(AVG(f.discount)*100 AS INT),'%') AS 'Average Discount'
 FROM factTable f, productDim p
 WHERE f.product_id = p.product_id
-GROUP BY f.product_id, p.product_name
+GROUP BY f.product_id, p.product_name, p.list_price
 ORDER BY [Total Profit] DESC;
 
 -- Sales/Staff/stores (Joaquin)
@@ -27,7 +27,7 @@ SELECT (s.first_name + ' '+ s.last_name) 'Staff Name', ROUND(SUM(f.sales * f.dis
 FROM factTable f, staffDim s
 WHERE f.staff_id = s.staff_id
 GROUP BY (s.first_name + ' '+ s.last_name), f.store_id
-ORDER BY [Total Sales] DESC
+ORDER BY [Total Sales] DESC;
 -- From here I can infer there are only 6 active staffs out of the 9, out of thesee 6 staffs, ST2 staffs have the most sales, followed by ST1 and finally ST3.
 
 -- Sales/Seasons of Sales/time (Rachel)
@@ -40,7 +40,7 @@ SELECT SUM(f.sales) AS 'Total Sales',t.Year, t.WeekOfYear AS 'Week Of Year', t.M
 FROM factTable f, timeDim t
 WHERE f.time_id = t.time_id
 GROUP BY t.Year, t.WeekOfYear, t.MonthName
-ORDER BY [Total Sales] DESC, t.Year, CAST(t.WeekOfYear AS INT)
+ORDER BY [Total Sales] DESC;
 
 -- Sales/Orders/Customers (Cody)
   -- - Find for:
@@ -53,7 +53,7 @@ SELECT (c.first_name + ' '+ c.last_name) 'Customer Name', ROUND(SUM(f.sales * f.
 FROM factTable f, customerDim c
 WHERE f.customer_id = c.customer_id
 GROUP BY (c.first_name + ' '+ c.last_name), c.[state], c.city
-ORDER BY [Total Sales] DESC, c.[state], c.city
+ORDER BY [Total Sales] DESC, c.[state], c.city;
 
 -- Sales/Products/brands/categories/inventory/(Time?) (Team)
   -- - Find for:
