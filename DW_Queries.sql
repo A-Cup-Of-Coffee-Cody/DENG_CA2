@@ -40,7 +40,7 @@ SELECT SUM(f.sales) AS 'Total Sales',t.Year, t.WeekOfYear AS 'Week Of Year', t.M
 FROM factTable f, timeDim t
 WHERE f.time_id = t.time_id
 GROUP BY t.Year, t.WeekOfYear, t.MonthName
-ORDER BY [Total Sales] DESC, t.Year, CAST(t.WeekOfYear AS INT)
+ORDER BY [Total Sales] DESC;
 
 -- Sales/Orders/Customers (Cody)
   -- - Find for:
@@ -53,7 +53,7 @@ SELECT (c.first_name + ' '+ c.last_name) 'Customer Name', ROUND(SUM(f.sales * f.
 FROM factTable f, customerDim c
 WHERE f.customer_id = c.customer_id
 GROUP BY (c.first_name + ' '+ c.last_name), c.[state], c.city
-ORDER BY [Total Sales] DESC, c.[state], c.city
+ORDER BY [Total Sales] DESC, c.[state], c.city;
 
 -- Sales/Products/brands/categories/inventory/(Time?) (Team)
   -- - Find for:
@@ -69,4 +69,4 @@ FROM factTable f, categoryDim c, brandDim b, productDim p
 WHERE f.product_id = p.product_id AND p.category_id = c.category_id AND p.brand_id = b.brand_id
 GROUP BY c.category_name, b.brand_name, p.product_name, p.stock) AS ranktable
 WHERE ranking = 1
-ORDER BY [Total Sales] DESC
+ORDER BY [Total Sales] DESC;
