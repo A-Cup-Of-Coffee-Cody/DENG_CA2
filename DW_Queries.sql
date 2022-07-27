@@ -39,13 +39,8 @@ ORDER BY [Total Sales] DESC
 SELECT SUM(f.sales) AS 'Total Sales',t.Year, t.WeekOfYear AS 'Week Of Year', t.MonthName AS 'Month'
 FROM factTable f, timeDim t
 WHERE f.time_id = t.time_id
-<<<<<<< Updated upstream
-GROUP BY t.Year, t.WeekOfYear
-ORDER BY [Total Sales] ,t.Year, CAST(t.WeekOfYear AS INT)
-=======
 GROUP BY t.Year, t.WeekOfYear, t.MonthName
 ORDER BY [Total Sales] DESC, t.Year, CAST(t.WeekOfYear AS INT)
->>>>>>> Stashed changes
 
 -- Sales/Orders/Customers (Cody)
   -- - Find for:
